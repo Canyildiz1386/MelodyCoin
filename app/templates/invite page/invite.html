@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/invite.css') }}">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/_f3aced6d-129f-4ffe-9077-3f35cb33f860.jpeg') }}" alt="logo">
+        </div>
+    </div>
+    <div class="main">
+        <div class="background"></div>
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+        <div id="title"><span class="bot"> INVITES</span></div>
+        <P class="P">INVITE YOUR FRIEND AND SHARE THIS BOT FOR MORE MEMBERS INTRODUCE US TO YOUR FRIEND.</P>
+        <h3>YOUR INVITE LINK</h3>
+        <button class="open" type="submit" onclick="copyCode()"> 
+            <span id="invitLink">t.me//telegramchannel-download.com</span>
+            <span id="copyButton"  class="clipboard">
+                <img src="{{ url_for('static', filename='img/clipboard.png') }}" alt="copy">
+            </span>
+        </button>
+        <p id="copyMessage" class="copy-message"></p>
+
+        <p class="P">YOUR FRIENDS</p>
+        <div class="friends">
+            {% for friend in referred_users %}
+            <div>
+                <span class="link">
+                    <span>{{ friend.nickname }}</span>
+                    <span id="money">{{ friend.coins | format_thousands }}</span>
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+        <br><br><br><br>
+
+        <!-------------------------------- menu---------------------------------->
+        {% include 'menu.html' %}
+    </div>
+    <script src="{{ url_for('static', filename='js/invite.js') }}"></script>
+</body>
+</html>

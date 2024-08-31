@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #060022;
+    color: var(--white);
+    font-family: 'Aldrich';
+    overflow-y: hidden;
+    text-align: center;
+   
+}
+
+:root {
+    --pink: #BB4DC1;
+    --dark-blue: #10122E;
+    --blue: #333A94;
+    --purple: #6A45A7;
+    --yellow: #FFA619;
+    --light-green: #11B3E9;
+    --white: #faf9f6;
+}
+
+.aldrich-regular {
+    font-family: "Aldrich", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.logo img {
+    width: 200px;
+
+}
+.loading {
+    font-size: 50PX;
+    color: var(--light-green);
+    animation: fade 1.5s infinite;
+    font-family: 'aldrich', sans-serif;
+ 
+    margin-top: 270px;
+   text-align: center;
+   
+}
+
+@keyframes fade {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+
+
+.main {
+    background-image: url(/img/TV\ -\ 1.png) ;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+}
+
+.circle {
+
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+}
+
+.c1 {
+    background: linear-gradient(to right, var(--pink) , #58245B);
+    width: 100px;
+    height: 100px;
+    right: 10px;
+    top: 265px;
+    z-index: -30;
+}
+
+.c2 {
+    background: linear-gradient(to right, var(--purple) , #291B41);
+    width: 90px;
+    height: 90px;
+    left: 25px;
+    bottom: 150px;
+}
+
+.c3 {
+    background: linear-gradient(to right, var(--blue) , #10122E);
+    width: 80px;
+    height: 80px;
+    right: 35px;
+    bottom: 35px;
+}
+.bot{
+    font-size: xx-large;
+    background: linear-gradient(to right,#BB4DC1 0% , #9249B4 10%, #9249B4 20%,#39247D 40%,#333A94 50%, #2AF9FE 120%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px ){
+    .loading{
+        font-size: 30PX;
+    }
+}

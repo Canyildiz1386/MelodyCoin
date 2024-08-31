@@ -1,0 +1,408 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'aldrich';
+
+}
+
+body {
+    background-color: #060022;
+    color: var(--white);
+    font-family: 'Aldrich';
+    text-align: center;
+}
+
+:root {
+    --pink: #BB4DC1;
+    --dark-blue: #10122E;
+    --blue: #333A94;
+    --purple: #6A45A7;
+    --yellow: #FFA619;
+    --light-green: #11B3E9;
+    --white: #faf9f6;
+}
+
+.aldrich-regular {
+    font-family: "Aldrich", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.logo i {
+    font-size: 30px;
+    position: absolute;
+    right: 0;
+    margin-top: 0;
+    padding: 10px;
+    margin-top: 5px;
+    color: var(--purple);
+}
+
+.logo button {
+    position: absolute;
+    right: 50px;
+    padding: 8px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 50px;
+    color: #060022;
+    background-color: var(--purple);
+}
+
+.logo .profit {
+    position: absolute;
+    right: 50px;
+    padding: 8px;
+    margin-top: 40px;
+    font-size: 7px;
+    opacity: 70%;
+}
+
+.profitCoin {
+    font-size: 15px;
+}
+
+.profit a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.nav {
+    display: flex;
+}
+
+.main {
+
+    height: 100vh;
+    position: relative;
+}
+
+.circle {
+
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+}
+
+.c1 {
+    background: linear-gradient(to right, var(--pink), #58245B);
+    width: 120px;
+    height: 120px;
+    right: 10px;
+    top: 100px;
+    z-index: -30;
+}
+
+.c2 {
+    background: linear-gradient(to right, var(--purple), #291B41);
+    width: 100px;
+    height: 100px;
+    left: 25px;
+    bottom: 300px;
+}
+
+.c3 {
+    background: linear-gradient(to right, var(--blue), #10122E);
+    width: 80px;
+    height: 80px;
+    right: 35px;
+    bottom: 150px;
+}
+
+
+.menu {
+    position: absolute;
+
+}
+
+.items ul {
+    position: fixed;
+    display: flex;
+    background-color: #faf9f624;
+    width: 97%;
+    height: 50px;
+    bottom: 0px;
+    margin: 5px;
+    justify-content: space-around;
+    border-radius: 8px;
+    align-items: center;
+
+
+
+}
+
+@media(min-width:767px) {
+    .items {
+        margin: 15px;
+        width: 96%;
+
+    }
+}
+
+.items i {
+    font-size: 30px;
+    color: var(--purple);
+}
+
+.items a {
+    color: var(--purple);
+
+}
+
+.items a:checked {
+    color: var(--purple);
+}
+
+.items i:hover {
+    color: var(--white);
+}
+
+ul li {
+    list-style: none;
+}
+
+ul:hover li {
+    opacity: .6;
+    filter: blur(2px);
+}
+
+ul li:hover {
+    opacity: 1;
+    filter: blur(0px);
+}
+
+.bi-ui-checks-grid {
+    color: var(--white) !important;
+}
+
+.icon {
+    font-size: 30px;
+    padding: 10px;
+    background-color: var(--purple);
+    border-radius: 50%;
+    margin: 10px;
+    width: 30px;
+    height: 30px;
+    color: #060022;
+    margin-right: 0px;
+
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.name {
+    background-color: var(--purple);
+    margin-left: 0;
+    color: #060022;
+    padding: 2px;
+    padding-right: 20px;
+    border-radius: 0px 50px 0px 0px;
+}
+
+.level {
+    width: 120px;
+    height: 8px;
+    background-color: #faf9f658;
+    margin: 2px;
+    border-radius: 50px;
+}
+
+.grade {
+    width: 50px;
+    height: 8px;
+    background: linear-gradient(to right, #BB4DC1 0%, #9249B4 10%, #9249B4 20%, #39247D 40%, #333A94 50%, #2AF9FE 120%);
+    ;
+
+    border-radius: 50px;
+}
+
+.fullLevel {
+    opacity: 50%;
+}
+
+.num {
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.number a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.number a:checked {
+    color: var(--white);
+}
+
+#input {
+    padding: 10px;
+    outline: none;
+    background: #ffffff0a;
+    color: var(--white);
+    border: 1px solid var(--white);
+    border-radius: 8px;
+    font-family: 'aldrich';
+    width: 250px;
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.sort {
+    padding: 0px;
+}
+
+.sort button {
+    width: 60px;
+    height: 30px;
+    margin: 10px 0px;
+    border: none;
+    background-color: var(--purple);
+    color: var(--white);
+}
+
+#vip {
+    border-radius: 50px 0px 0px 50px;
+}
+
+#price {
+    border-radius: 0px 50px 50px 0px;
+}
+
+.sortby {
+    padding: 5px;
+    font-size: 10px;
+    opacity: 50%;
+    margin-top: 5px;
+}
+
+.nfts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nft {
+    position: relative;
+    border-radius: 8px 8px 0px 0px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    font-size: small;
+    align-items: center;
+    background: linear-gradient(to bottom, #1b008935, #060022);
+    border-radius: 8px 8px 0px 0px;
+    padding: 20px 7px 20px 7px;
+    margin: 0px 3px;
+}
+
+.nft::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 1px;
+    /* Adjust the padding to control the border thickness */
+    background: linear-gradient(to bottom, var(--white), #060022);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    z-index: -1;
+}
+
+.txt img {
+    width: 30px;
+
+}
+
+.txt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.description {
+    font-size: 10px;
+    opacity: 70%;
+    width: 80px;
+}
+
+.coin img {
+    width: 10px;
+}
+
+.coin button {
+    margin: 3px;
+    padding: 3px;
+    border-radius: 50px;
+    width: 60px;
+    background-color: #faf9f629;
+    color: var(--white);
+    border: 1px solid var(--white);
+    cursor: pointer;
+}
+
+.coin span {
+    font-size: 8px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    /* Hidden by default */
+    z-index: 10000;
+    position: fixed;
+    left: 0;
+    bottom: 60px;
+    width: 100%;
+    /* Height of the modal */
+    background: linear-gradient(to bottom, #150068b3, #060022);
+    box-shadow: 0px -4px 10px var(--pink);
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+
+}
+
+.modal-content {
+    padding: 20px;
+    color:var(--white);
+}
+
+.modal-nft-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--white);
+}
+
+.modal-button {
+    background-color: var(--purple);
+    color: var(--white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.modal-button:hover {
+    background-color: var(--pink);
+}

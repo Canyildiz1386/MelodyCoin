@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload NFT</title>
+</head>
+<body>
+    <h1>Upload New NFT</h1>
+    <form action="{{ url_for('upload_nft') }}" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="name">NFT Name:</label>
+            <input type="text" name="name" id="name" required>
+        </div>
+        <div>
+            <label for="description">Description:</label>
+            <textarea name="description" id="description" required></textarea>
+        </div>
+        <div>
+            <label for="profit">Profit:</label>
+            <input type="number" name="profit" id="profit" required>
+        </div>
+        <div>
+            <label for="price">Price:</label>
+            <input type="number" name="price" id="price" required>
+        </div>
+        <div>
+            <label for="image">NFT Image:</label>
+            <input type="file" name="image" id="image" required>
+        </div>
+        <button type="submit">Upload NFT</button>
+    </form>
+</body>
+</html>

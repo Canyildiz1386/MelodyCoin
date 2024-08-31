@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'aldrich';
+}
+
+body {
+    background-color: #060022;
+    color: var(--white);
+    font-family: 'Aldrich';
+    text-align: center;
+
+}
+
+:root {
+    --pink: #BB4DC1;
+    --dark-blue: #10122E;
+    --blue: #333A94;
+    --purple: #6A45A7;
+    --yellow: #FFA619;
+    --light-green: #11B3E9;
+    --white: #faf9f6;
+}
+
+.aldrich-regular {
+    font-family: "Aldrich", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+.main {
+
+    height: 100vh;
+    position: relative;
+}
+
+.circle {
+
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+}
+
+.c1 {
+    background: linear-gradient(to right, var(--pink), #58245B);
+    width: 120px;
+    height: 120px;
+    right: 10px;
+    top: 200px;
+    z-index: -30;
+}
+
+.c2 {
+    background: linear-gradient(to right, var(--purple), #291B41);
+    width: 100px;
+    height: 100px;
+    left: 25px;
+    bottom: 300px;
+}
+
+.c3 {
+    background: linear-gradient(to right, var(--blue), #10122E);
+    width: 80px;
+    height: 80px;
+    right: 35px;
+    bottom: 150px;
+}
+
+
+
+.box {
+    position: relative;
+    border-radius: 8px 8px 0px 0px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    font-size: small;
+    align-items: center;
+    background: linear-gradient(to bottom, #1b008935, #060022);
+    border-radius: 8px 8px 0px 0px;
+    display: flex;
+    margin: 0px 10px;
+    padding: 5px 10px 5px 10px;
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 1px;
+    /* Adjust the padding to control the border thickness */
+    background: linear-gradient(to bottom, var(--white), #060022);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    z-index: -1;
+}
+
+.logo img {
+    width: 150px;
+}
+
+.fullLevel {
+    opacity: 50%;
+}
+
+.level p {
+    margin: 5px 0px;
+    font-size: 15px;
+}
+
+.range {
+    width: 90%;
+    height: 20px;
+    background-color: #faf9f658;
+    margin: 0px 5%;
+    border-radius: 50px;
+}
+
+.grade {
+
+    width: 60%;
+    height: 20px;
+    background-color: #faf9f658;
+    border-radius: 50px;
+    background: linear-gradient(to right, #BB4DC1 0%, #9249B4 10%, #9249B4 20%, #39247D 40%, #333A94 50%, #2AF9FE 120%);
+}
+
+.back a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 30px;
+    padding: 10px;
+}
+
+.back a:checked {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.nav {
+    display: flex;
+}
+
+.detail {
+    padding: 5px;
+}
+
+.name {
+    font-size: x-large;
+    color: var(--purple);
+    text-transform: uppercase;
+}
+.num{
+    opacity: 50%;
+    font-size: 20px;
+}
+#persons {
+    margin-top: 5px;
+}
+.fix {
+    position: relative;
+    border-radius: 8px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    font-size: small;
+    align-items: center;
+    background: #060022;
+    display: flex;
+    margin: 0px 2%;
+    padding: 5px 10px 5px 10px;
+    position: fixed;
+    bottom: 2px;
+    width: 90%;
+    border:1px solid var(--pink);
+}
+.mine{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav{
+    width: 100%;
+    background-color: #060022;
+    position: fixed;
+    z-index: 100000;
+}
