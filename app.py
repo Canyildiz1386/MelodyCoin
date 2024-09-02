@@ -15,7 +15,7 @@ products = {
 }
 orders = {}
 TELEGRAM_TOKEN = "7476580536:AAFhZS6bM63fWJcSyPn0KfFNpWT5Jh5t4vE"
-STEAM_API_KEY = "your_steam_api_key"
+STEAM_API_KEY = "C095A4ACE1742D06CD45D0722554CAF1"
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
