@@ -26,11 +26,12 @@
         <P class="P">INVITE YOUR FRIEND AND SHARE THIS BOT FOR MORE MEMBERS INTRODUCE US TO YOUR FRIEND.</P>
         <h3>YOUR INVITE LINK</h3>
         <button class="open" type="submit" onclick="copyCode()"> 
-            <span id="invitLink">t.me//telegramchannel-download.com</span>
-            <span id="copyButton"  class="clipboard">
+            <span id="invitLink">{{ invite_link }}</span>
+            <span id="copyButton" class="clipboard">
                 <img src="{{ url_for('static', filename='img/clipboard.png') }}" alt="copy">
             </span>
         </button>
+        
         <p id="copyMessage" class="copy-message"></p>
 
         <p class="P">YOUR FRIENDS</p>
