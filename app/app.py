@@ -348,7 +348,6 @@ admin = Admin(
     app, name="Admin Panel", template_mode="bootstrap3", index_view=MyAdminIndexView()
 )
 admin.add_view(MyModelView(User, db.session))
-admin.add_view(MyModelView(NFT, db.session))
 admin.add_view(MyModelView(Wallet, db.session))
 admin.add_view(MyModelView(Task, db.session))
 admin.add_view(MyModelView(UserTask, db.session))
@@ -459,26 +458,22 @@ def add_coin():
 
 class NFTModelView(ModelView):
     form_extra_fields = {
-        "image": ImageUploadField(
-            "Image",
-            base_path=os.path.join(
-                os.path.dirname(__file__), app.config["UPLOAD_FOLDER"]
-            ),
-            relative_path=app.config["UPLOAD_FOLDER"],
-            thumbnail_size=(100, 100, True),
+        'image': ImageUploadField(
+            'Image',
+            base_path=os.path.join(app.root_path, app.config['UPLOAD_FOLDER']),
+            relative_path=app.config['UPLOAD_FOLDER'],
+            thumbnail_size=(100, 100, True)
         )
     }
 
     def _list_thumbnail(view, context, model, name):
         if not model.image:
-            return ""
-        return Markup(
-            f'<img src="{url_for("static", filename=f"uploads/nfts/{model.image}")}" width="50">'
-        )
+            return ''
+        return Markup(f'<img src="{url_for("static", filename="nfts/" + model.image)}" width="50">')
 
-    column_list = ["name", "description", "profit", "price", "image", "is_vip"]
-    form_columns = ["name", "description", "profit", "price", "image", "is_vip"]
-    column_formatters = {"image": _list_thumbnail}
+    column_list = ['name', 'description', 'profit', 'price', 'image', 'is_vip']
+    form_columns = ['name', 'description', 'profit', 'price', 'image', 'is_vip']
+    column_formatters = {'image': _list_thumbnail}
 
 
 @app.route("/nfts/purchase", methods=["POST"])
@@ -503,6 +498,7 @@ def purchase_nft():
         flash("Not enough coins to purchase this NFT.", "danger")
 
     return redirect(url_for("nfts"))
+admin.add_view(NFTModelView(NFT, db.session))
 
 
 if __name__ == "__main__":
