@@ -79,31 +79,64 @@ document.addEventListener('DOMContentLoaded', function () {
             audio.pause();
             clearInterval(coinInterval);
         }
-
+    
         const song = musicFiles[currentFolder][index];
         songName.textContent = song.name;
         songSinger.textContent = currentFolder;
-
+    
         audio = new Audio(song.url);
         audio.play();
-
+    
+        // Reset progress bar to 0 when a new song starts
+        rangeElement.value = 0;
+    
         audio.addEventListener('timeupdate', updateProgress);
         audio.addEventListener('loadedmetadata', () => {
             totalTimeElement.textContent = formatTime(audio.duration);
+            rangeElement.removeAttribute('disabled');  // Enable range element when metadata is loaded
         });
-
+    
         audio.addEventListener('ended', playNextSong);  // Play the next song automatically
-
+    
         currentSongIndex = index;
         playButton.classList.remove('bi-play-fill');
         playButton.classList.add('bi-pause-fill');
-
-        // Disable user from changing the range (progress bar)
-        rangeElement.setAttribute('disabled', true);
-
+    
         // Start giving coins every second
         startCoinGiving();
     }
+    function playSong(index) {
+        if (audio) {
+            audio.pause();
+            clearInterval(coinInterval);
+        }
+    
+        const song = musicFiles[currentFolder][index];
+        songName.textContent = song.name;
+        songSinger.textContent = currentFolder;
+    
+        audio = new Audio(song.url);
+        audio.play();
+    
+        // Reset progress bar to 0 when a new song starts
+        rangeElement.value = 0;
+    
+        audio.addEventListener('timeupdate', updateProgress);
+        audio.addEventListener('loadedmetadata', () => {
+            totalTimeElement.textContent = formatTime(audio.duration);
+            rangeElement.removeAttribute('disabled');  // Enable range element when metadata is loaded
+        });
+    
+        audio.addEventListener('ended', playNextSong);  // Play the next song automatically
+    
+        currentSongIndex = index;
+        playButton.classList.remove('bi-play-fill');
+        playButton.classList.add('bi-pause-fill');
+    
+        // Start giving coins every second
+        startCoinGiving();
+    }
+        
 
     function playNextSong() {
         if (isShuffleOn) {
