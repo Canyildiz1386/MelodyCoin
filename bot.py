@@ -15,6 +15,8 @@ async def start(update: Update, context):
     web_app_url = f"{WEB_APP_URL}?tg_id={tg_id}&username={username}&referrer_id={referrer_id}"
 
     welcome_image_path = "app/static/img/_f3aced6d-129f-4ffe-9077-3f35cb33f860.jpeg"
+    print(update.effective_user.username)
+    print(update.effective_user.id)
 
     try:
         fd = os.open(welcome_image_path, os.O_RDONLY) 
