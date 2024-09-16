@@ -11,8 +11,3 @@
 
         // اجرای تابع هنگام بارگذاری صفحه
         window.onload = redirectToInput;
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                window.location.href = "/";  // Redirect to home page after 3 seconds
-            }, 3000);
-        });

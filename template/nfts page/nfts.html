@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/nfts page/nfts.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="nav">
+        <div class="logo">
+            <i class="bi bi-globe2"></i>
+            <button type="button">APGRADE</button>
+            <div class="profit">
+                <a href="">
+                    <p>PROFIT PER HOUR</p>
+                    <div class="profitCoin">
+
+                        <p>
+
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10 5C10 7.76142 7.76142 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.76142 0 10 2.23858 10 5Z"
+                                    fill="#FFA619" />
+                                <path
+                                    d="M6.91309 4.71289C7.04492 4.75391 7.16504 4.8125 7.27344 4.88867C7.38184 4.96484 7.47412 5.06299 7.55029 5.18311C7.62646 5.30029 7.68506 5.43945 7.72607 5.60059C7.76709 5.76172 7.7876 5.94629 7.7876 6.1543V6.4707C7.7876 7.49023 7.27783 8 6.2583 8H2.80859V1.69824H6.07812C7.09766 1.69824 7.60742 2.20947 7.60742 3.23193V3.34619C7.60742 3.70068 7.55029 3.99072 7.43604 4.21631C7.32471 4.43896 7.15039 4.60449 6.91309 4.71289ZM3.69189 5.25342V7.1167H6.23193C6.46924 7.1167 6.64062 7.06104 6.74609 6.94971C6.85156 6.83838 6.9043 6.66406 6.9043 6.42676V5.93896C6.9043 5.69873 6.85156 5.52441 6.74609 5.41602C6.64062 5.30762 6.46924 5.25342 6.23193 5.25342H3.69189ZM3.69189 2.58154V4.37451H6.11328C6.33008 4.36572 6.48535 4.30713 6.5791 4.19873C6.67578 4.0874 6.72412 3.91748 6.72412 3.68896V3.27588C6.72412 3.03564 6.67139 2.85986 6.56592 2.74854C6.46045 2.63721 6.28906 2.58154 6.05176 2.58154H3.69189Z"
+                                    fill="black" />
+                            </svg>
+                            +
+                            <span>12</span>
+                            <span>k</span>
+                        </p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="user">
+        <div class="icon">
+            <i class="bi bi-person-fill"></i>
+        </div>
+        <div class="levels">
+            <p class="name">Linda</p>
+            <div class="level">
+                <div class="grade"></div>
+            </div>
+            <div class="number">
+                <a href="/level page/level.html">
+                    <p class="num">LEVEL <span class="userLevel">3</span>/<span class="fullLevel">12</span></p>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!------------------------------------- background --------------------------------------------->
+    <div class="main">
+
+        <div class="background">
+        </div>
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+        <!----------------------------------------------- page items -------------------------------------------------->
+        <div class="fixing">
+            <form action="/daily reward/daily.html">
+                <div class="input">
+                    <input type="text" placeholder="SEARCH..." id="input">
+                </div>
+            </form>
+            <div class="sortby">
+                SORT BY:
+            </div>
+            <div class="sort">
+                <button type="button" id="vip">VIP</button>
+                <button type="button" id="group">GROUP</button>
+                <button type="button" id="price">PRICE</button>
+            </div>
+
+        </div>
+        <!----------------------- NFTs ------------------------->
+        <div class="nfts">
+            <div class="nft">
+                <div class="txt">
+                    <img src="/img/prize-box-mother-s-day-3d-illustration-png 1.png" alt="">
+                    <div>
+                        <span class="nftName">
+                            NFT NAME
+                        </span>
+                        <div class="description">
+                            this is the description of this NFT
+                        </div>
+                    </div>
+                </div>
+                <div class="coin">
+                    <span>
+                        PROFIT:
+                    </span>
+                    <span class="pro">
+                        1.5k
+                    </span>
+                    <button type="button" onclick="openModal(this)">
+                        <span class="nftCoin">
+                            100
+                        </span>
+                        <span>
+                            <img src="/img/Untitled-2.png" alt="">
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="nft">
+                <div class="txt">
+                    <img src="/img/prize-box-mother-s-day-3d-illustration-png 1.png" alt="">
+                    <div>
+                        <span class="nftName">
+                            NFT NAME
+                        </span>
+                        <div class="description">
+                            this is the description of this NFT
+                        </div>
+                    </div>
+                </div>
+                <div class="coin">
+                    <span>
+                        PROFIT:
+                    </span>
+                    <span class="pro">
+                        1k
+                    </span>
+                    <button type="button" onclick="openModal(this)">
+                        <span class="nftCoin">
+                            500
+                        </span>
+                        <span>
+                            <img src="/img/Untitled-2.png" alt="">
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="nft">
+                <div class="txt">
+                    <img src="/img/prize-box-mother-s-day-3d-illustration-png 1.png" alt="">
+                    <div>
+                        <span class="nftName">
+                            NFT NAME
+                        </span>
+                        <div class="description">
+                            this is the description of this NFT
+                        </div>
+                    </div>
+                </div>
+                <div class="coin">
+                    <span>
+                        PROFIT:
+                    </span>
+                    <span class="pro">
+                        100
+                    </span>
+                    <button type="button" onclick="openModal(this)">
+                        <span class="nftCoin">
+                            300
+                        </span>
+                        <span>
+                            <img src="/img/Untitled-2.png" alt="">
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="nft">
+                <div class="txt">
+                    <img src="/img/prize-box-mother-s-day-3d-illustration-png 1.png" alt="">
+                    <div>
+                        <span class="nftName">
+                            NFT NAME
+                        </span>
+                        <div class="description">
+                            this is the description of this NFT
+                        </div>
+                    </div>
+                </div>
+                <div class="coin">
+                    <span>
+                        PROFIT:
+                    </span>
+                    <span class="pro">
+                        1.5k
+                    </span>
+                    <button type="button" onclick="openModal(this)">
+                        <span class="nftCoin">
+                            1m
+                        </span>
+                        <span>
+                            <img src="/img/Untitled-2.png" alt="">
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="nft">
+                <div class="txt">
+                    <img src="/img/prize-box-mother-s-day-3d-illustration-png 1.png" alt="">
+                    <div>
+                        <span class="nftName">
+                            NFT NAME
+                        </span>
+                        <div class="description">
+                            this is the description of this NFT
+                        </div>
+                    </div>
+                </div>
+                <div class="coin">
+                    <span>
+                        PROFIT:
+                    </span>
+                    <span class="pro">
+                        3k
+                    </span>
+                    <button type="button" onclick="openModal(this)">
+                        <span class="nftCoin">
+                            800
+                        </span>
+                        <span>
+                            <img src="/img/Untitled-2.png" alt="">
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="nft">
+                <div class="txt">
+                    <img src="/img/prize-box-mother-s-day-3d-illustration-png 1.png" alt="">
+                    <div>
+                        <span class="nftName">
+                            NFT NAME
+                        </span>
+                        <div class="description">
+                            this is the description of this NFT
+                        </div>
+                    </div>
+                </div>
+                <div class="coin">
+                    <span>
+                        PROFIT:
+                    </span>
+                    <span class="pro">
+                        5k
+                    </span>
+                    <button type="button" onclick="openModal(this)">
+                        <span class="nftCoin">
+                            50
+                        </span>
+                        <span>
+                            <img src="/img/Untitled-2.png" alt="">
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="nft">
+                <div class="txt">
+                    <img src="/img/prize-box-mother-s-day-3d-illustration-png 1.png" alt="">
+                    <div>
+                        <span class="nftName">
+                            NFT NAME
+                        </span>
+                        <div class="description">
+                            this is the description of this NFT
+                        </div>
+                    </div>
+                </div>
+                <div class="coin">
+                    <span>
+                        PROFIT:
+                    </span>
+                    <span class="pro">
+                        5k
+                    </span>
+                    <button type="button" onclick="openModal(this)">
+                        <span class="nftCoin">
+                            50
+                        </span>
+                        <span>
+                            <img src="/img/Untitled-2.png" alt="">
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="nft">
+                <div class="txt">
+                    <img src="/img/prize-box-mother-s-day-3d-illustration-png 1.png" alt="">
+                    <div>
+                        <span class="nftName">
+                            NFT NAME
+                        </span>
+                        <div class="description">
+                            this is the description of this NFT
+                        </div>
+                    </div>
+                </div>
+                <div class="coin">
+                    <span>
+                        PROFIT:
+                    </span>
+                    <span class="pro">
+                        1m
+                    </span>
+                    <button type="button" onclick="openModal(this)">
+                        <span class="nftCoin">
+                            1k
+                        </span>
+                        <span>
+                            <img src="/img/Untitled-2.png" alt="">
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="nft">
+                <div class="txt">
+                    <img src="/img/prize-box-mother-s-day-3d-illustration-png 1.png" alt="">
+                    <div>
+                        <span class="nftName">
+                            NFT NAME
+                        </span>
+                        <div class="description">
+                            this is the description of this NFT
+                        </div>
+                    </div>
+                </div>
+                <div class="coin">
+                    <span>
+                        PROFIT:
+                    </span>
+                    <span class="pro">
+                        5k
+                    </span>
+                    <button type="button" onclick="openModal(this)">
+                        <span class="nftCoin">
+                            50
+                        </span>
+                        <span>
+                            <img src="/img/Untitled-2.png" alt="">
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div id="nft-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModalname()">&times;</span>
+                <img src="/img/prize-box-mother-s-day-3d-illustration-png 1.png" alt="NFT" class="modal-nft-image">
+                <h3 id="modal-name"></h3>
+                <p id="description"></p>
+                <p>Profit:
+                <p id="profit"> 1.5K</p>
+                </p>
+                <p>Price: <span id="coin">100</span> Coins</p>
+                <button type="button" class="modal-button">Go Ahead</button>
+            </div>
+        </div>
+
+        <br><br><br><br>
+        <!----------------------------------menu -------------------------------------->
+        <div class="menu">
+            <div class="items">
+                <ul>
+                    <li> <a href="/tasks/tasks.html" title="tasks"><i class="bi bi-patch-check-fill"></i></a></li>
+                    <li> <a href="" title="nft"><i class="bi bi-ui-checks-grid"></i></a></li>
+                    <li><a href="/home page/home.html" title="home"><i class="bi bi-house-fill"></i></a> </li>
+                    <li><a href="/invite page/invite.html" title="invits"><i class="bi bi-people-fill"></i></a></li>
+                    <li><a href="/wallet page/wallet.html" title="wallet"><i class="bi bi-wallet-fill"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="/nfts page/nfts.js"></script>
+</body>
+
+</html>

@@ -32,34 +32,34 @@ body {
     width: 200px;
 
 }
-.ok button {
-    font-size: 20PX;
-    color: var(--white);
+.loading {
+    font-size: 50PX;
+    color: var(--light-green);
+    animation: fade 1.5s infinite;
     font-family: 'aldrich', sans-serif;
-    padding:17px 40px ;
-    margin-top: 140px;
+ 
+    margin-top: 270px;
    text-align: center;
-   border-radius: 12px;
-   background-color: var(--light-green);
-   border: none;
-
+   
 }
 
-.ok button:hover{
-    background-color:var(--blue) ;
+@keyframes fade {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
-#triangle {
-    clip-path: polygon(0 0, 100% 100%, 0 100%);
-    width: 100vh;
-    height: 70vh;
-    background-color: var(--purple);
-    bottom: 0px;
-    position: absolute;
-    left: 0;
-}
+
+
+
 
 .main {
-    background-image: url("{{ url_for('static', filename='img/TV - 1.png') }}") ;
+    background-image: url(../img/TV\ -\ 1.png) ;
     background-size: cover;
     height: 100vh;
     position: relative;
@@ -103,15 +103,8 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-#input{
-    padding: 10px;
-    outline: none;
-    background: #ffffff42;
-    color: var(--white);
-    border: 1px solid var(--white);
-    border-radius: 8px;
-    font-family: 'aldrich';
-    width: 250px;
-    margin-top: 60px;
-    font-size: 18px;
+@media (max-width: 768px ){
+    .loading{
+        font-size: 30PX;
+    }
 }

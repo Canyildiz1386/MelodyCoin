@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Player</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+</head>
+<body>
+    <div class="music">
+        <i class="bi bi-shuffle" onclick="change()" id="type"></i>
+        <i class="bi bi-skip-backward"></i>
+        <i class="bi bi-play-fill" id="play" onclick="play()"></i>
+        <i class="bi bi-skip-forward"></i>
+        <i class="bi bi-heart" id="heart" onclick="heart()"></i>
+    </div>
+
+    <script>
+        const clientId = '307f2701370940b682cc153ed5e5cf4d';  // Provided Spotify Client ID
+        const redirectUri = 'https://23.88.51.6:8080';  // Provided Redirect URI
+        const scopes = 'streaming user-read-email user-read-private user-modify-playback-state';
+
+        function authorizeSpotify() {
+            const url = `https://accounts.spotify.com/authorize?response_type=token&client_id=${clientId}&scope=${encodeURIComponent(scopes)}&redirect_uri=${encodeURIComponent(redirectUri)}`;
+            window.location = url;
+        }
+
+        function getTokenFromUrl() {
+            const hash = window.location.hash.substring(1);
+            const params = new URLSearchParams(hash);
+            return params.get('access_token');
+        }
+
+        let spotifyPlayer;
+        let accessToken = getTokenFromUrl();
+
+        if (!accessToken) {
+            authorizeSpotify();  // If no token, redirect to Spotify login
+        }
+
+        window.onSpotifyWebPlaybackSDKReady = () => {
+            spotifyPlayer = new Spotify.Player({
+                name: 'My Custom Player',
+                getOAuthToken: cb => { cb(accessToken); }
+            });
+
+            spotifyPlayer.addListener('ready', ({ device_id }) => {
+                console.log('Ready with Device ID', device_id);
+            });
+
+            spotifyPlayer.addListener('not_ready', ({ device_id }) => {
+                console.log('Device ID has gone offline', device_id);
+            });
+
+            spotifyPlayer.connect();
+        };
+
+        function playSpotifyTrack(trackUri) {
+            fetch(`https://api.spotify.com/v1/me/player/play`, {
+                method: 'PUT',
+                body: JSON.stringify({ uris: [trackUri] }),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`
+                }
+            });
+        }
+
+        function play() {
+            const element = document.getElementById("play");
+            if (element.classList.contains("bi-play-fill")) {
+                element.classList.remove("bi-play-fill");
+                element.classList.add("bi-pause-fill");
+                playSpotifyTrack('spotify:track:TRACK_ID');  // Replace with actual Spotify track URI
+            } else if (element.classList.contains("bi-pause-fill")) {
+                element.classList.remove("bi-pause-fill");
+                element.classList.add("bi-play-fill");
+                spotifyPlayer.pause();
+            }
+        }
+    </script>
+</body>
+</html>
