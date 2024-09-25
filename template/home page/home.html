@@ -1,84 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify Player</title>
+    <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <link rel="stylesheet" href="../home page/home.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="music">
-        <i class="bi bi-shuffle" onclick="change()" id="type"></i>
-        <i class="bi bi-skip-backward"></i>
-        <i class="bi bi-play-fill" id="play" onclick="play()"></i>
-        <i class="bi bi-skip-forward"></i>
-        <i class="bi bi-heart" id="heart" onclick="heart()"></i>
+    <div class="nav">
+        <div class="logo">
+            <i class="bi bi-globe2"></i>
+            <button type="button">APGRADE</button>
+            <div class="profit">
+                <a href="">
+                    <p>PROFIT PER HOUR</p>
+                    <div class="profitCoin">
+
+                        <p>
+
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10 5C10 7.76142 7.76142 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.76142 0 10 2.23858 10 5Z"
+                                    fill="#FFA619" />
+                                <path
+                                    d="M6.91309 4.71289C7.04492 4.75391 7.16504 4.8125 7.27344 4.88867C7.38184 4.96484 7.47412 5.06299 7.55029 5.18311C7.62646 5.30029 7.68506 5.43945 7.72607 5.60059C7.76709 5.76172 7.7876 5.94629 7.7876 6.1543V6.4707C7.7876 7.49023 7.27783 8 6.2583 8H2.80859V1.69824H6.07812C7.09766 1.69824 7.60742 2.20947 7.60742 3.23193V3.34619C7.60742 3.70068 7.55029 3.99072 7.43604 4.21631C7.32471 4.43896 7.15039 4.60449 6.91309 4.71289ZM3.69189 5.25342V7.1167H6.23193C6.46924 7.1167 6.64062 7.06104 6.74609 6.94971C6.85156 6.83838 6.9043 6.66406 6.9043 6.42676V5.93896C6.9043 5.69873 6.85156 5.52441 6.74609 5.41602C6.64062 5.30762 6.46924 5.25342 6.23193 5.25342H3.69189ZM3.69189 2.58154V4.37451H6.11328C6.33008 4.36572 6.48535 4.30713 6.5791 4.19873C6.67578 4.0874 6.72412 3.91748 6.72412 3.68896V3.27588C6.72412 3.03564 6.67139 2.85986 6.56592 2.74854C6.46045 2.63721 6.28906 2.58154 6.05176 2.58154H3.69189Z"
+                                    fill="black" />
+                            </svg>
+                            +
+                            <span>12</span>
+                            <span>k</span>
+                        </p>
+                </a>
+            </div>
+        </div>
     </div>
+    <div class="user">
+        <div class="icon">
+            <i class="bi bi-person-fill"></i>
+        </div>
+        <div class="levels">
+            <p class="name">Linda</p>
+            <div class="level">
+                <div class="grade"></div>
+            </div>
+            <div class="number">
+                <a href="/level page/level.html">
+                    <p class="num">LEVEL <span class="userLevel">3</span>/<span class="fullLevel">12</span></p>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!------------------------------------- background --------------------------------------------->
+    <div class="main">
 
-    <script>
-        const clientId = '307f2701370940b682cc153ed5e5cf4d';  // Provided Spotify Client ID
-        const redirectUri = 'https://23.88.51.6:8080';  // Provided Redirect URI
-        const scopes = 'streaming user-read-email user-read-private user-modify-playback-state';
+        <div class="background">
+        </div>
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+        <!----------------------------------------------- page items -------------------------------------------------->
+        <div class="coins">
+            <img src="../img/Untitled-2.png" alt="coin">
+            <h2>4,556,445,565</h2>
 
-        function authorizeSpotify() {
-            const url = `https://accounts.spotify.com/authorize?response_type=token&client_id=${clientId}&scope=${encodeURIComponent(scopes)}&redirect_uri=${encodeURIComponent(redirectUri)}`;
-            window.location = url;
-        }
-
-        function getTokenFromUrl() {
-            const hash = window.location.hash.substring(1);
-            const params = new URLSearchParams(hash);
-            return params.get('access_token');
-        }
-
-        let spotifyPlayer;
-        let accessToken = getTokenFromUrl();
-
-        if (!accessToken) {
-            authorizeSpotify();  // If no token, redirect to Spotify login
-        }
-
-        window.onSpotifyWebPlaybackSDKReady = () => {
-            spotifyPlayer = new Spotify.Player({
-                name: 'My Custom Player',
-                getOAuthToken: cb => { cb(accessToken); }
-            });
-
-            spotifyPlayer.addListener('ready', ({ device_id }) => {
-                console.log('Ready with Device ID', device_id);
-            });
-
-            spotifyPlayer.addListener('not_ready', ({ device_id }) => {
-                console.log('Device ID has gone offline', device_id);
-            });
-
-            spotifyPlayer.connect();
-        };
-
-        function playSpotifyTrack(trackUri) {
-            fetch(`https://api.spotify.com/v1/me/player/play`, {
-                method: 'PUT',
-                body: JSON.stringify({ uris: [trackUri] }),
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${accessToken}`
-                }
-            });
-        }
-
-        function play() {
-            const element = document.getElementById("play");
-            if (element.classList.contains("bi-play-fill")) {
-                element.classList.remove("bi-play-fill");
-                element.classList.add("bi-pause-fill");
-                playSpotifyTrack('spotify:track:TRACK_ID');  // Replace with actual Spotify track URI
-            } else if (element.classList.contains("bi-pause-fill")) {
-                element.classList.remove("bi-pause-fill");
-                element.classList.add("bi-play-fill");
-                spotifyPlayer.pause();
-            }
-        }
-    </script>
+        </div>
+        <div class="pages">
+            <span class="page">
+                <span class="dailyReward">
+                    <a href="/daily reward/daily.html">
+                        <span class="dailyCoin">
+                            <img src="../img/Untitled-2.png" alt="">
+                            <span>2,000</span>
+                        </span>
+                        <p>DAILY REWARD</p>
+                    </a>
+                </span>
+                <span>
+                    <img src="../img/Line 1.png" alt="">
+                </span>
+                <span class="dailyCode">
+                    <a href="/tapping page/tapping.html">DAILY CODE</a>
+                </span>
+            </span>
+        </div>
+        <div class="select">
+            <div class="selec active" id="selec1">
+                <span class="butt " id="butt1">OFFLINE</span>
+            </div>
+            <div class="selec" id="selec2">
+                <span class="butt" id="butt2">ONLINE</span>
+            </div>
+            <div class="selec" id="selec3">
+                <span class="butt" id="butt3">PADCAST</span>
+            </div>
+        </div>
+        <div>
+            <img src="../img/music.png" alt="">
+        </div>
+        <h5 class="songName">BLACK IN BLACK</h5>
+        <h6 class="songSinger">AC-DC</h6>
+        <div class="range">
+            <span>
+                00:29
+            </span>
+            <span>
+                <input type="range" name="range" id="range" placeholder="r">
+            </span>
+            <span>
+                03:10
+            </span>
+        </div>
+        <div class="music">
+            <i class="bi bi-shuffle" onclick="change()" id="type"></i>
+            <i class="bi bi-skip-backward"></i>
+            <i class="bi bi-play-fill" id="play" onclick="play()"></i>
+            <i class="bi bi-skip-forward"></i>
+            <i class="bi bi-heart" id="heart" onclick="heart()"></i>
+        </div>
+        <div class="fix">
+            <div class="time">
+                <span>
+                    <p>
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10 5C10 7.76142 7.76142 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.76142 0 10 2.23858 10 5Z"
+                                fill="#FFA619" />
+                            <path
+                                d="M6.91309 4.71289C7.04492 4.75391 7.16504 4.8125 7.27344 4.88867C7.38184 4.96484 7.47412 5.06299 7.55029 5.18311C7.62646 5.30029 7.68506 5.43945 7.72607 5.60059C7.76709 5.76172 7.7876 5.94629 7.7876 6.1543V6.4707C7.7876 7.49023 7.27783 8 6.2583 8H2.80859V1.69824H6.07812C7.09766 1.69824 7.60742 2.20947 7.60742 3.23193V3.34619C7.60742 3.70068 7.55029 3.99072 7.43604 4.21631C7.32471 4.43896 7.15039 4.60449 6.91309 4.71289ZM3.69189 5.25342V7.1167H6.23193C6.46924 7.1167 6.64062 7.06104 6.74609 6.94971C6.85156 6.83838 6.9043 6.66406 6.9043 6.42676V5.93896C6.9043 5.69873 6.85156 5.52441 6.74609 5.41602C6.64062 5.30762 6.46924 5.25342 6.23193 5.25342H3.69189ZM3.69189 2.58154V4.37451H6.11328C6.33008 4.36572 6.48535 4.30713 6.5791 4.19873C6.67578 4.0874 6.72412 3.91748 6.72412 3.68896V3.27588C6.72412 3.03564 6.67139 2.85986 6.56592 2.74854C6.46045 2.63721 6.28906 2.58154 6.05176 2.58154H3.69189Z"
+                                fill="black" />
+                        </svg>
+                        <span>
+                            2,200
+                        </span>
+                    </p>
+                </span>
+                <span>
+                    00:02:13
+                </span>
+            </div>
+            <div class="timeRange">
+                <div class="timeRange2">
+                </div>
+            </div>
+        </div>
+        <br><br><br><br>
+        <!----------------------------------menu -------------------------------------->
+        <div class="menu">
+            <div class="items">
+                <ul>
+                    <li> <a href="/tasks/tasks.html" title="tasks"><i class="bi bi-patch-check-fill"></i></a></li>
+                    <li> <a href="/nfts page/nfts.html" title="nft"><i class="bi bi-ui-checks-grid"></i></a></li>
+                    <li><a href="" title="home"><i class="bi bi-house-fill"></i></a> </li>
+                    <li><a href="/invite page/invite.html" title="invits"><i class="bi bi-people-fill"></i></a></li>
+                    <li><a href="/wallet page/wallet.html" title="wallet"><i class="bi bi-wallet-fill"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="../home page/home.js"></script>
 </body>
+
 </html>

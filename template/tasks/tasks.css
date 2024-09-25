@@ -247,3 +247,48 @@ a.check{
 .active::before{
     background: linear-gradient(to bottom,var(--pink) , #060022 );
 }
+.circle {
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    animation: float 5s ease-in-out infinite;
+}
+.c1, .c2, .c3 {
+    background: linear-gradient(to right, var(--pink), #58245B);
+    width: 100px;
+    height: 100px;
+}
+
+.c2 {
+    background: linear-gradient(to right, var(--purple), #291B41);
+    width: 90px;
+    height: 90px;
+    left: 25px;
+    bottom: 150px;
+}
+
+.c3 {
+    background: linear-gradient(to right, var(--blue), #10122E);
+    width: 80px;
+    height: 80px;
+    right: 35px;
+    bottom: 35px;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

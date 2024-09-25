@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="/tapping page/tapping.css">
+    <link rel="stylesheet" href="../tapping page/tapping.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
     <div class="nav">
         <div class="logo">
             <i class="bi bi-globe2"></i>
@@ -68,13 +69,13 @@
         <div class="circle c2"></div>
         <div class="circle c3"></div>
         <!----------------------------------------------- page items -------------------------------------------------->
-        <div id="title"><span class="bot">TAP</span></div>
+        <!-- <div id="title"><span class="bot">TAP</span></div> -->
         <div class="coins">
-            <img src="/img/Untitled-2.png" alt="coin">
-            <h2>4,556,445,565</h2>
+            <img src="../img/Untitled-2.png" alt="coin">
+            <h2 id="coin-count">4,556,445,565</h2>
         </div>
-        <div class="tap">
-            <img src="/img/Untitled-2.png" alt="">
+        <div class="tap" id="tap">
+            <img src="../img/Untitled-2.png" alt="">
         </div>
         <div class="shadow"></div>
         <div class="timer">
@@ -118,5 +119,27 @@
     </div>
  
 </body>
-
+<script>// Initial coin count
+    let coinCount = 4556445565;
+    
+    // Function to handle the tap
+    document.querySelector('#tap').addEventListener('click', function() {
+        // Increment the coin count
+        coinCount += 1;
+        document.getElementById('coin-count').textContent = coinCount.toLocaleString();
+    
+        // Create the "+1" element
+        const plusOne = document.createElement('span');
+        plusOne.textContent = "+1";
+        plusOne.classList.add('plus-one');
+        
+        // Append the "+1" element to the tap div
+        document.querySelector('.tap').appendChild(plusOne);
+    
+        // Remove the "+1" element after the animation ends
+        plusOne.addEventListener('animationend', function() {
+            plusOne.remove();
+        });
+    });
+    </script>
 </html>
