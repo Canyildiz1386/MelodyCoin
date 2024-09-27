@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../home page/home.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
@@ -24,7 +24,6 @@
                     <div class="profitCoin">
 
                         <p>
-
                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -69,7 +68,7 @@
         <div class="circle c3"></div>
         <!----------------------------------------------- page items -------------------------------------------------->
         <div class="coins">
-            <img src="../img/Untitled-2.png" alt="coin">
+            <img src="{{ url_for('static', filename='img/Untitled-2.png') }}" alt="coin">
             <h2>4,556,445,565</h2>
 
         </div>
@@ -78,14 +77,14 @@
                 <span class="dailyReward">
                     <a href="/daily reward/daily.html">
                         <span class="dailyCoin">
-                            <img src="../img/Untitled-2.png" alt="">
+                            <img src="{{ url_for('static', filename='img/Untitled-2.png') }}" alt="">
                             <span>2,000</span>
                         </span>
                         <p>DAILY REWARD</p>
                     </a>
                 </span>
                 <span>
-                    <img src="../img/Line 1.png" alt="">
+                    <img src="{{ url_for('static', filename='img/Line 1.png') }}" alt="">
                 </span>
                 <span class="dailyCode">
                     <a href="/tapping page/tapping.html">DAILY CODE</a>
@@ -103,8 +102,9 @@
                 <span class="butt" id="butt3">PADCAST</span>
             </div>
         </div>
+        <br><br>
         <div>
-            <img src="../img/music.png" alt="">
+            <img src="{{ url_for('static', filename='img/music.png') }}" alt="">
         </div>
         <h5 class="songName">BLACK IN BLACK</h5>
         <h6 class="songSinger">AC-DC</h6>
@@ -166,7 +166,7 @@
             </div>
         </div>
     </div>
-    <script src="../home page/home.js"></script>
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
 </body>
 
 </html>

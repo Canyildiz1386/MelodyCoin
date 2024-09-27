@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Nickname</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/input.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main">
+        <div class="background">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='img/_f3aced6d-129f-4ffe-9077-3f35cb33f860.jpeg') }}" alt="logo">
+            </div>
+            <div><span class="bot">Melody Coin</span></div>
+            <form action="{{ url_for('input_page', user_id=user_id, username=username, hash=hash) }}" method="POST">
+                <div class="input">
+                    <input type="text" name="nickname" placeholder="ENTER YOUR NICKNAME" id="input" required>
+                </div>
+                <div class="ok">
+                    <button type="submit">OK</button>
+                </div>
+            </form>
+        </div>
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+    </div>
+</body>
+</html>
