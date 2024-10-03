@@ -22,7 +22,6 @@
                 <a href="">
                     <p>PROFIT PER HOUR</p>
                     <div class="profitCoin">
-
                         <p>
                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -34,7 +33,7 @@
                                     fill="black" />
                             </svg>
                             +
-                            <span>12</span>
+                            <span>{{profit}}</span>
                             <span>k</span>
                         </p>
                 </a>
@@ -44,15 +43,16 @@
     <div class="user">
         <div class="icon">
             <i class="bi bi-person-fill"></i>
+            
         </div>
         <div class="levels">
-            <p class="name">Linda</p>
+            <p class="name">{{nickname}}</p>
             <div class="level">
                 <div class="grade"></div>
             </div>
             <div class="number">
                 <a href="/level page/level.html">
-                    <p class="num">LEVEL <span class="userLevel">3</span>/<span class="fullLevel">12</span></p>
+                    <p class="num">LEVEL <span class="userLevel">{{level}}</span>/<span class="fullLevel">12</span></p>
                 </a>
             </div>
         </div>
@@ -69,7 +69,7 @@
         <!----------------------------------------------- page items -------------------------------------------------->
         <div class="coins">
             <img src="{{ url_for('static', filename='img/Untitled-2.png') }}" alt="coin">
-            <h2>4,556,445,565</h2>
+            <h2>{{coins}}</h2>
 
         </div>
         <div class="pages">
@@ -91,6 +91,34 @@
                 </span>
             </span>
         </div>
+
+        <!-- Conditionally display upload form or song list -->
+        {% if songs|length == 0 %}
+        <div class="upload-section">
+            <h3>No songs uploaded yet. Upload up to 10 songs:</h3>
+            <form action="{{ url_for('upload_songs') }}" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="user_id" value="{{ user_id }}">
+                <input type="file" name="songs" multiple accept=".mp3,.wav,.ogg" required>
+                <button type="submit">Upload Songs</button>
+            </form>
+        </div>
+        {% else %}
+        <div class="song-list">
+            <h3>Your Songs</h3>
+            <ul>
+                {% for song in songs %}
+                <li>
+                    <p>{{ song.split('/')[-1] }}</p>
+                    <audio controls>
+                        <source src="{{ url_for('static', filename=song) }}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
         <div class="select">
             <div class="selec active" id="selec1">
                 <span class="butt " id="butt1">OFFLINE</span>

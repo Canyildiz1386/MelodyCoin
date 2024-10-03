@@ -15,7 +15,7 @@ async def start(update: Update, context):
     user_id = user.id
     username = user.username
     user_hash = generate_hash(user_id, username)
-    url = f"https://018e-78-182-185-235.ngrok-free.app/?user_id={user_id}&username={username}&hash={user_hash}"
+    url = f"https://d665-37-27-40-154.ngrok-free.app/?user_id={user_id}&username={username}&hash={user_hash}"
     await update.message.reply_text(f"Here is your personalized link: {url}")
 
 def main():

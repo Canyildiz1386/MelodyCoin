@@ -471,3 +471,27 @@ ul li:hover {
 #play{
     cursor: pointer;
 }
+body {
+    animation: fadeIn 2s ease-in; /* Added this line */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.c1, .c2, .c3 {
+    animation: pulse 6s infinite ease-in-out; /* Added this line */
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
